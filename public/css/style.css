@@ -216,14 +216,6 @@ margin-top: -50px;
 
 
 
-.feature-card:hover {
-
-    transform: translateY(-8px);
-
-}
-
-
-
 .feature-icon {
 
     width: 55px;
@@ -249,6 +241,8 @@ margin-top: -50px;
     font-size: 24px;
 
     margin-bottom: 15px;
+        cursor: pointer;
+
 
 }
 
