@@ -1,25 +1,158 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>add2Kart</title>
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <body>
-
-
     <%- include("partials/navbar") %>
-    
-    
-    
-    <section class="hero-banner">
-        
-        <img src="<%= banner.image %>" alt="banner" width="100%">
-        
-    </section>
-    
-    <!-- <script src="/js/navbar.js"></script> -->
+
+        <section class="hero-banner">
+            <img src="<%= banner.image %>" alt="banner" width="100%">
+        </section>
+
+        <div class="line"></div>
+
+        <section class="latest-section">
+
+            <div class="section-title">
+                <p>
+                    Latest Collections
+                </p>
+                <span>
+                    <h2>
+                        Explore our newest fashion trends and premium picks
+                    </h2>
+                </span>
+            </div>
+
+            <div class="products-container">
+                <% products.forEach(product=> { %>
+                    <div class="product-card">
+                        <img src="<%= product.image %>" alt="<%= product.product_name %>">
+                        <div class="line"></div>
+                        <h3 class="products-container-font">
+                            <%= product.product_name %>
+                        </h3>
+                        <p>
+                            <%= product.price %>
+                        </p>
+                    </div>
+                    <% }) %>
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section class="features-section">
+            <div class="section-title">
+                <p>
+                    Why Choose buyForever
+                </p>
+                <span>
+                    <h2>
+                        Enjoy a seamless shopping experience with trusted services
+                    </h2>
+                </span>
+            </div>
+
+            <div class="features-container">
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </div>
+                    <p>
+                        10 Days Return & Exchange
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                    </div>
+                    <p>
+                        Cash on Delivery
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <p>
+                        Free Delivery
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <p>
+                        Top Brand
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <p>
+                        24/7 Customer Support
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <p>
+                        Secure Transaction
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-credit-card"></i>
+                    </div>
+                    <p>
+                        Easy Payment
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="line"></div>
+
+        <section class="subscribe-section">
+            <div class="subscribe-content">
+                <p class="brand-title">
+                    buyForever
+                </p>
+                <h1>
+                    Join Our Premium Fashion Club
+                </h1>
+                <span>
+                    Subscribe to get exclusive offers, latest collections
+                    and trending fashion updates.
+                </span>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button>
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <%- include("partials/footer") %>
+            <!-- <script src="/js/navbar.js"></script> -->
 </body>
 
 </html>
