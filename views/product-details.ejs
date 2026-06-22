@@ -10,24 +10,19 @@
 
     <link rel="stylesheet" href="/css/product-details.css">
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
 
 </head>
 
-
 <body>
-
 
     <%- include("partials/navbar") %>
 
-
-
         <section class="product-details">
-
 
             <!-- Left Image Section -->
 
             <div class="product-images">
-
 
                 <div class="main-image">
 
@@ -35,86 +30,65 @@
 
                 </div>
 
-
-
                 <div class="small-images">
-
 
                     <img class="thumbnail" src="<%= product.image_1 %>">
 
-
                     <img class="thumbnail" src="<%= product.image_2 %>">
-
 
                     <img class="thumbnail" src="<%= product.image_3 %>">
 
-
                     <img class="thumbnail" src="<%= product.image_4 %>">
-
 
                 </div>
 
-
             </div>
-
-
-
-
 
             <!-- Right Info Section -->
 
-
             <div class="product-info">
-
 
                 <h1>
                     <%= product.product_name %>
                 </h1>
 
-
-
                 <h2>
                     <%= product.price %>/-
                 </h2>
-
-
+                <div class="line"></div>
 
                 <p>
                     <%= product.description %>
                 </p>
 
-
-
+                <div class="line"></div>
 
                 <div class="extra-info">
-
 
                     <p>
                         <b>Brand:</b>
                         <%= product.brand %>
                     </p>
 
-
                     <p>
                         <b>Category:</b>
                         <%= product.category %>
                     </p>
-
 
                     <p>
                         <b>Size:</b>
                         <%= product.size %>
                     </p>
 
-
                 </div>
+
+                <div class="line"></div>
 
                 <div class="top-highlights">
 
                     <h2>
                         Top Highlights
                     </h2>
-
 
                     <table>
 
@@ -123,111 +97,92 @@
                             <td>Polyester</td>
                         </tr>
 
-
                         <tr>
                             <td>Pattern</td>
                             <td>Solid</td>
                         </tr>
-
 
                         <tr>
                             <td>Fit type</td>
                             <td>Slim Fit</td>
                         </tr>
 
-
                         <tr>
                             <td>Sleeve type</td>
                             <td>Puff Sleeve</td>
                         </tr>
-
 
                         <tr>
                             <td>Collar style</td>
                             <td>Button Down</td>
                         </tr>
 
-
                         <tr>
                             <td>Neck style</td>
                             <td>Collared Neck</td>
                         </tr>
-
 
                         <tr>
                             <td>Country of Origin</td>
                             <td>India</td>
                         </tr>
 
-
                     </table>
 
-
                 </div>
 
-
+                
 
                 <div class="action-buttons">
-
-
                     <button class="cart-btn">
-
                         <i class="fa-solid fa-cart-shopping"></i>
-
                         Add To Cart
-
                     </button>
-
-
-
                     <button class="wishlist-btn">
-
                         <i class="fa-solid fa-heart"></i>
-
                         Add To Wishlist
-
                     </button>
-
-
                 </div>
-
-
-
             </div>
-
-
         </section>
 
-        <script>
+
+        <section class="subscribe-section">
+            <div class="subscribe-content">
+                <p class="brand-title">
+                    buyForever
+                </p>
+                <h1>
+                    Join Our Premium Fashion Club
+                </h1>
+                <span>
+                    Subscribe to get exclusive offers, latest collections
+                    and trending fashion updates.
+                </span>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button>
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </section>
 
 
-            const thumbnails = document.querySelectorAll(".thumbnail");
+        <%- include("partials/footer") %>
 
+            <script>
+                const thumbnails = document.querySelectorAll(".thumbnail");
+                const mainImage = document.getElementById(
+                    "mainProductImage"
+                );
 
-            const mainImage = document.getElementById(
-                "mainProductImage"
-            );
-
-
-
-            thumbnails.forEach(image => {
-
-
-                image.addEventListener("click", () => {
-
-
-                    mainImage.src = image.src;
-
-
+                thumbnails.forEach(image => {
+                    image.addEventListener("click", () => {
+                        mainImage.src = image.src;
+                    });
                 });
-
-
-            });
-
-
-        </script>
-
-
+            </script>
 </body>
 
 </html>

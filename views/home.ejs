@@ -34,17 +34,6 @@
 
             <div class="products-container">
                 <% products.forEach(product=> { %>
-                    <!-- <div class="product-card">
-                        <img src="<%= product.image %>" alt="<%= product.product_name %>">
-                        <div class="line"></div>
-                        <h3 class="products-container-font">
-                            <%= product.product_name %>
-                        </h3>
-                        <p>
-                            <%= product.price %>
-                        </p>
-                    </div> -->
-
                     <a href="/product/<%= product.id %>" class="product-link">
                         <div class="product-card">
                             <img src="<%= product.image %>" alt="<%= product.product_name %>">
