@@ -1,4 +1,4 @@
-# 🛍️ add2Kart - Premium E-Commerce Wardrobe Experience
+# 🛍️ buyForever - Premium E-Commerce Wardrobe Experience
 
 TrendFlow ek modern, ultra-responsive aur visually striking clothing storefront hai jise khas taur par Indian audience ke liye design kiya gaya hai. Yeh website ek minimalist fintech layout ko ek high-energy streetwear aesthetic me transform karti hai.
 
