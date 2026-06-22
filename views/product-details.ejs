@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        <%= product.product_name %>
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/product-details.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+
+</head>
+
+
+<body>
+
+
+    <%- include("partials/navbar") %>
+
+
+
+        <section class="product-details">
+
+
+            <!-- Left Image Section -->
+
+            <div class="product-images">
+
+
+                <div class="main-image">
+
+                    <img src="<%= product.image %>" id="mainProductImage" alt="product">
+
+                </div>
+
+
+
+                <div class="small-images">
+
+
+                    <img class="thumbnail" src="<%= product.image_1 %>">
+
+
+                    <img class="thumbnail" src="<%= product.image_2 %>">
+
+
+                    <img class="thumbnail" src="<%= product.image_3 %>">
+
+
+                    <img class="thumbnail" src="<%= product.image_4 %>">
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <!-- Right Info Section -->
+
+
+            <div class="product-info">
+
+
+                <h1>
+                    <%= product.product_name %>
+                </h1>
+
+
+
+                <h2>
+                    <%= product.price %>/-
+                </h2>
+
+
+
+                <p>
+                    <%= product.description %>
+                </p>
+
+
+
+
+                <div class="extra-info">
+
+
+                    <p>
+                        <b>Brand:</b>
+                        <%= product.brand %>
+                    </p>
+
+
+                    <p>
+                        <b>Category:</b>
+                        <%= product.category %>
+                    </p>
+
+
+                    <p>
+                        <b>Size:</b>
+                        <%= product.size %>
+                    </p>
+
+
+                </div>
+
+                <div class="top-highlights">
+
+                    <h2>
+                        Top Highlights
+                    </h2>
+
+
+                    <table>
+
+                        <tr>
+                            <td>Material composition</td>
+                            <td>Polyester</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Pattern</td>
+                            <td>Solid</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Fit type</td>
+                            <td>Slim Fit</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Sleeve type</td>
+                            <td>Puff Sleeve</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Collar style</td>
+                            <td>Button Down</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Neck style</td>
+                            <td>Collared Neck</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Country of Origin</td>
+                            <td>India</td>
+                        </tr>
+
+
+                    </table>
+
+
+                </div>
+
+
+
+                <div class="action-buttons">
+
+
+                    <button class="cart-btn">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Add To Cart
+
+                    </button>
+
+
+
+                    <button class="wishlist-btn">
+
+                        <i class="fa-solid fa-heart"></i>
+
+                        Add To Wishlist
+
+                    </button>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+        <script>
+
+
+            const thumbnails = document.querySelectorAll(".thumbnail");
+
+
+            const mainImage = document.getElementById(
+                "mainProductImage"
+            );
+
+
+
+            thumbnails.forEach(image => {
+
+
+                image.addEventListener("click", () => {
+
+
+                    mainImage.src = image.src;
+
+
+                });
+
+
+            });
+
+
+        </script>
+
+
+</body>
+
+</html>

@@ -78,7 +78,13 @@
 
 
 
+.product-link{
 
+    text-decoration:none;
+
+    color:inherit;
+
+}
 .product-card {
 
     background: white;
