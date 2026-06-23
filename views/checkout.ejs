@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        Checkout | add2Kart
+    </title>
+
+
+    <link rel="stylesheet" href="/css/checkout.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+</head>
+
+
+<body>
+
+    <%- include("partials/navbar")%>
+
+        <section class="checkout">
+
+
+            <h1>
+                Checkout 🛒
+            </h1>
+
+
+
+            <div class="checkout-container">
+
+
+
+                <div class="address-box">
+
+
+                    <h2>
+                        Delivery Address
+                    </h2>
+
+
+
+                    <% if(address){ %>
+
+
+                        <p>
+                            <b>Name:</b>
+                            <%= address.full_name %>
+                        </p>
+
+
+                        <p>
+                            <b>Phone:</b>
+                            <%= address.phone %>
+                        </p>
+
+
+                        <p>
+
+                            <b>Address:</b>
+
+                            <%= address.house_no %>,
+                                <%= address.street %>,
+                                    <%= address.city %>,
+                                        <%= address.state %>
+
+                        </p>
+
+
+                        <p>
+
+                            <b>Pincode:</b>
+
+                            <%= address.pincode %>
+
+                        </p>
+
+
+
+                        <% }else{ %>
+
+
+                            <p>
+                                No Address Found
+                            </p>
+
+
+                            <a href="/profile">
+                                Add Address
+                            </a>
+
+
+                            <% } %>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="order-box">
+
+
+                    <h2>
+                        Your Order
+                    </h2>
+
+
+
+
+                    <% products.forEach(product=>{ %>
+
+
+                        <div class="product">
+
+
+                            <img src="<%= product.image %>">
+
+
+                            <div>
+
+
+                                <h3>
+                                    <%= product.product_name %>
+                                </h3>
+
+
+                                <p>
+                                    Quantity:
+                                    <%= product.quantity %>
+                                </p>
+
+
+                                <p>
+                                    <%= product.price %>
+                                </p>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <% }) %>
+
+
+
+                            <hr>
+
+
+                            <h2>
+                                Payment
+                            </h2>
+
+
+                            <label>
+
+                                <input type="radio" checked>
+
+                                Cash On Delivery
+
+                            </label>
+
+
+
+                            <br>
+
+
+                            <label>
+
+                                <input type="radio">
+
+                                Online Payment
+
+                            </label>
+
+
+
+
+                            <form action="/place-order" method="POST">
+
+                                <button>
+                                    Place Order
+                                </button>
+
+                            </form>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+
+        <%-include("partials/footer")%>
+
+</body>
+
+</html>

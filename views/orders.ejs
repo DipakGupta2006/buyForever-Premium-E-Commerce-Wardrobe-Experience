@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        My Orders | add2Kart
+    </title>
+
+
+    <link rel="stylesheet" href="/css/orders.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+</head>
+
+
+
+<body>
+
+    <%-include("partials/navbar")%>
+
+    <section class="orders-section">
+
+
+
+        <h1>
+            My Orders 📦
+        </h1>
+
+
+
+
+        <div class="orders-container">
+
+
+
+            <% if(orders.length===0){ %>
+
+
+                <h2>
+                    No Orders Found
+                </h2>
+
+
+                <% } %>
+
+
+
+
+                    <% orders.forEach(order=>{ %>
+
+
+
+                        <div class="order-card">
+
+
+
+                            <div class="order-header">
+
+
+                                <h2>
+                                    Order #<%= order.order_id %>
+                                </h2>
+
+
+                                <span>
+                                    <%= order.order_status %>
+                                </span>
+
+
+                            </div>
+
+
+
+
+                            <div class="order-info">
+
+
+                                <p>
+
+                                    <b>Total Amount:</b>
+
+                                    ₹<%= order.total_amount %>
+
+                                </p>
+
+
+
+                                <p>
+
+                                    <b>Payment:</b>
+
+                                    <%= order.payment_method %>
+
+                                </p>
+
+
+
+                                <p>
+
+                                    <b>Date:</b>
+
+                                    <%= order.created_at.toDateString() %>
+
+                                </p>
+
+
+
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                        <% }) %>
+
+
+
+        </div>
+
+
+    </section>
+
+    <%-include("partials/footer")%>
+
+</body>
+
+
+</html>

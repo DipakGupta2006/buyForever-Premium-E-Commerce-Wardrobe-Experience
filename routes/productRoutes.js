@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../db");
+const isAuthenticated = require("../middleware/auth");
 // Product Details Page
 
-router.get("/product/:id", async (req, res) => {
+router.get("/product/:id",isAuthenticated, async (req, res) => {
     try {
         const productId = req.params.id;
         const [rows] = await pool.query(

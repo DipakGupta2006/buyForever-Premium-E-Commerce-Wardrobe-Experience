@@ -1,0 +1,272 @@
+
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:#f7f7fb;
+
+}
+
+
+
+
+
+.success-section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+
+}
+
+
+
+
+
+.success-card{
+
+
+    width:500px;
+
+    background:white;
+
+    padding:50px 40px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.12);
+
+
+}
+
+
+
+
+.success-icon{
+
+
+    width:100px;
+
+    height:100px;
+
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    border-radius:50%;
+
+
+    background:
+    linear-gradient(
+    90deg,
+    hsla(280,95%,57%,1),
+    hsla(193,90%,55%,1)
+    );
+
+
+    color:white;
+
+
+    font-size:45px;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+.success-card h1{
+
+
+    font-size:32px;
+
+    color:#222;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.success-card p{
+
+
+    color:#666;
+
+    font-size:18px;
+
+
+}
+
+
+
+
+.success-card span{
+
+
+    font-weight:700;
+
+
+    background:
+    linear-gradient(
+    90deg,
+    hsla(280,95%,57%,1),
+    hsla(193,90%,55%,1)
+    );
+
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+
+}
+
+
+
+
+
+.sub-text{
+
+
+    margin-top:15px;
+
+    font-size:15px !important;
+
+}
+
+
+
+
+
+.buttons{
+
+
+    margin-top:35px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+
+}
+
+
+
+
+
+.buttons a{
+
+
+    text-decoration:none;
+
+
+    padding:14px 25px;
+
+
+    border-radius:12px;
+
+
+    font-weight:600;
+
+
+    color:white;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    hsla(280,95%,57%,1),
+    hsla(193,90%,55%,1)
+    );
+
+
+}
+
+
+
+
+
+.buttons .outline{
+
+
+    background:white;
+
+    color:#333;
+
+    border:1px solid #ddd;
+
+
+}
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+.success-card{
+
+    width:100%;
+
+    padding:40px 20px;
+
+}
+
+
+
+.success-card h1{
+
+    font-size:25px;
+
+}
+
+
+
+.buttons{
+
+    flex-direction:column;
+
+}
+
+
+
+.buttons a{
+
+    width:100%;
+
+}
+
+
+}

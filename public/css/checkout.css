@@ -1,0 +1,407 @@
+
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:#f7f7fb;
+
+}
+
+
+
+/* Main Section */
+
+.checkout{
+
+    padding:50px 8%;
+
+}
+
+
+
+.checkout > h1{
+
+    text-align:center;
+
+    font-size:42px;
+
+    margin-bottom:40px;
+
+
+    background:linear-gradient(
+        90deg,
+        hsla(280,95%,57%,1),
+        hsla(193,90%,55%,1)
+    );
+
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+}
+
+
+
+
+
+/* Main Container */
+
+.checkout-container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.2fr;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+
+
+
+
+/* Address Box */
+
+.address-box,
+.order-box{
+
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:30px;
+
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+.address-box h2,
+.order-box h2{
+
+
+    font-size:24px;
+
+    margin-bottom:25px;
+
+    color:#333;
+
+}
+
+
+
+
+.address-box p{
+
+    font-size:16px;
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.address-box b{
+
+    color:#111;
+
+}
+
+
+
+
+.address-box a{
+
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+
+    background:linear-gradient(
+        90deg,
+        #b429f9,
+        #26c5f3
+    );
+
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+
+
+
+
+
+
+/* Product Card */
+
+
+.product{
+
+
+    display:flex;
+
+    gap:20px;
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+
+    border-radius:15px;
+
+    background:#fafafa;
+
+
+    border:1px solid #eee;
+
+
+}
+
+
+
+
+.product img{
+
+
+    width:110px;
+
+    height:110px;
+
+
+    object-fit:cover;
+
+
+    border-radius:12px;
+
+
+}
+
+
+
+
+.product h3{
+
+
+    font-size:17px;
+
+    color:#333;
+
+    margin-bottom:12px;
+
+
+}
+
+
+
+
+.product p{
+
+
+    color:#666;
+
+    margin-bottom:8px;
+
+
+}
+
+
+
+
+.product p:last-child{
+
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:#a52af7;
+
+
+}
+
+
+
+
+
+hr{
+
+
+    border:none;
+
+    height:1px;
+
+    background:#ddd;
+
+    margin:25px 0;
+
+
+}
+
+
+
+
+
+
+/* Payment */
+
+
+label{
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+
+    padding:12px;
+
+
+    margin:10px 0;
+
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+input[type="radio"]{
+
+
+    width:18px;
+
+    height:18px;
+
+
+}
+
+
+
+
+
+/* Place Order Button */
+
+
+form button{
+
+
+    width:100%;
+
+    margin-top:25px;
+
+
+    padding:16px;
+
+
+    border:none;
+
+
+    border-radius:15px;
+
+
+    cursor:pointer;
+
+
+    font-size:17px;
+
+    font-weight:600;
+
+
+    color:white;
+
+
+    background:linear-gradient(
+        90deg,
+        #b429f9,
+        #26c5f3
+    );
+
+
+    transition:0.3s;
+
+
+}
+
+
+
+form button:hover{
+
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(180,41,249,0.3);
+
+
+}
+
+
+
+
+
+
+/* Responsive */
+
+
+@media(max-width:900px){
+
+
+.checkout-container{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+.checkout{
+
+
+    padding:40px 5%;
+
+}
+
+
+.checkout > h1{
+
+
+    font-size:34px;
+
+}
+
+
+}

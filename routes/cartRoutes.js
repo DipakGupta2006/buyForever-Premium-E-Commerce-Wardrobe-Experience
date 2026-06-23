@@ -2,12 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 const pool = require("../db");
+const isAuthenticated = require("../middleware/auth");
 
 
 
 // Cart Page
 
-router.get("/cart", async (req, res) => {
+router.get("/cart",isAuthenticated, async (req, res) => {
 
 
     try {
@@ -69,7 +70,7 @@ router.get("/cart", async (req, res) => {
 
 });
 
-router.post("/cart/add", async (req, res) => {
+router.post("/cart/add",isAuthenticated, async (req, res) => {
 
 
     try {
@@ -160,7 +161,7 @@ router.post("/cart/add", async (req, res) => {
 
 });
 
-router.post("/cart/remove", async (req, res) => {
+router.post("/cart/remove",isAuthenticated, async (req, res) => {
 
 
     try {

@@ -143,7 +143,7 @@ router.post("/profile/address",isAuthenticated, async(req,res)=>{
 
 });
 
-router.post("/delete-account", async(req,res)=>{
+router.post("/delete-account",isAuthenticated, async(req,res)=>{
 
 
 const user_id=req.session.user_id;

@@ -49,7 +49,9 @@ const collection = require("./routes/collection");
 const wishlistRoutes = require("./routes/wishlistRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const profileRoutes = require("./routes/profileRoutes");
-
+const checkoutRoutes = require("./routes/checkoutRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+// const order_success = ")
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -142,6 +144,8 @@ app.use(collection);
 app.use(wishlistRoutes);
 app.use(cartRoutes);
 app.use(profileRoutes);
+app.use(checkoutRoutes);
+app.use(orderRoutes);
 app.get("/about", isAuthenticated, (req, res) => {
     res.render("about");
 });
@@ -150,6 +154,9 @@ app.get("/contact", isAuthenticated, (req, res) => {
     res.render("contact");
 });
 
+app.get("/order-success", isAuthenticated, (req, res) => {
+    res.render("order-success")
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
