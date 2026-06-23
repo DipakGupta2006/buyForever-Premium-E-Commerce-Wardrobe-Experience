@@ -27,99 +27,141 @@
 <body>
     <%- include("partials/navbar") %>
 
-    <section class="cart-section">
+        <section class="cart-section">
 
 
 
-        <div class="cart-title">
+            <div class="cart-title">
 
 
-            <h1>
-                My Cart <i class="fa-solid fa-cart-shopping"></i>
-            </h1>
+                <h1>
+                    My Cart <i class="fa-solid fa-cart-shopping"></i>
+                </h1>
 
 
-            <p>
-                Review your items before checkout
-            </p>
+                <p>
+                    Review your items before checkout
+                </p>
 
 
-        </div>
-
-
-
-
-
-        <div class="cart-container">
-
-
-
-            <% products.forEach(product=>{ %>
-
-
-
-                <div class="cart-card">
-
-
-
-                    <div class="cart-image">
-
-
-                        <img src="<%= product.image %>">
-
-
-                    </div>
+            </div>
 
 
 
 
-                    <div class="cart-details">
 
-
-                        <h2>
-
-                            <%= product.product_name %>
-
-                        </h2>
-
-
-                        <p>
-
-                            <i class="fa-solid fa-tag"></i>
-
-                            <%= product.brand || "Premium Brand" %>
-
-                        </p>
+            <div class="cart-container">
 
 
 
-                        <h3>
-
-                            <%= product.price %>
-
-                        </h3>
+                <% products.forEach(product=>{ %>
 
 
 
-                        <div class="quantity">
+                    <div class="cart-card">
 
-                            Quantity:
 
-                            <span>
-                                <%= product.quantity %>
-                            </span>
+
+                        <div class="cart-image">
+
+
+                            <img src="<%= product.image %>">
+
 
                         </div>
 
 
 
-                        <div class="rating">
 
-                            ⭐⭐⭐⭐⭐
+                        <div class="cart-details">
 
-                            <span>
-                                (4.8/5)
-                            </span>
+
+                            <h2>
+
+                                <%= product.product_name %>
+
+                            </h2>
+
+
+                            <p>
+
+                                <i class="fa-solid fa-tag"></i>
+
+                                <%= product.brand || "Premium Brand" %>
+
+                            </p>
+
+
+
+                            <h3>
+
+                                <%= product.price %>
+
+                            </h3>
+
+
+
+                            <div class="quantity">
+
+                                Quantity:
+
+                                <span>
+                                    <%= product.quantity %>
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="rating">
+
+                                ⭐⭐⭐⭐⭐
+
+                                <span>
+                                    (4.8/5)
+                                </span>
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+                        <div class="cart-actions">
+
+                            <form action="/checkout" method="GET">
+
+                                <button class="checkout-btn"> <i class="fa-solid fa-bag-shopping"></i>
+                                    Buy Now
+                                </button>
+
+                            </form>
+
+
+
+                            <form action="/cart/remove" method="POST">
+
+
+                                <input type="hidden" name="product_id" value="<%= product.id %>">
+
+
+
+                                <button class="remove-btn">
+
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                    Remove
+
+
+                                </button>
+
+
+                            </form>
 
                         </div>
 
@@ -129,59 +171,16 @@
 
 
 
-
-
-                    <div class="cart-actions">
-
-
-                        <button class="checkout-btn">
-
-                            <i class="fa-solid fa-bag-shopping"></i>
-
-                            Buy Now
-
-                        </button>
+                    <% }) %>
 
 
 
-                        <form action="/cart/remove" method="POST">
-
-
-                            <input type="hidden" name="product_id" value="<%= product.id %>">
-
-
-
-                            <button class="remove-btn">
-
-
-                                <i class="fa-solid fa-trash"></i>
-
-                                Remove
-
-
-                            </button>
-
-
-                        </form>
-
-                    </div>
-
-
-
-                </div>
-
-
-
-                <% }) %>
-
-
-
-        </div>
+            </div>
 
 
 
 
-        <!-- <div class="checkout-box">
+            <!-- <div class="checkout-box">
 
 
             <h2>
@@ -207,11 +206,11 @@
  -->
 
 
-    </section>
+        </section>
 
 
 
-    <%- include("partials/footer") %>
+        <%- include("partials/footer") %>
 </body>
 
 

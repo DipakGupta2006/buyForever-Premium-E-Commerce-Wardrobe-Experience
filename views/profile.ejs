@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+
+    <title>
+        My Profile
+    </title>
+
+
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+
+
+<body>
+    <%- include("partials/navbar")%>
+
+
+
+        <section class="profile-section">
+
+
+            <div class="profile-card">
+
+
+
+                <h1>
+                    My Profile 👤
+                </h1>
+
+
+                <div class="user-info">
+
+
+                    <h2>
+                        <%= user.username %>
+                    </h2>
+
+
+                    <p>
+                        <%= user.email %>
+                    </p>
+
+                    <p>
+                        Member Since:
+                        <%= new Date(user.created_at).toDateString() %>
+                    </p>
+
+
+                </div>
+
+
+
+
+                <h2 class="address-title">
+
+                    Delivery Address
+
+                </h2>
+
+
+
+
+
+                <form action="/profile/address" method="POST">
+
+
+
+                    <input type="text" name="full_name" placeholder="Full Name" value="<%= address?.full_name || '' %>"
+                        required>
+
+
+
+                    <input type="text" name="phone" placeholder="Mobile Number" value="<%= address?.phone || '' %>"
+                        required>
+
+
+
+                    <input type="text" name="house_no" placeholder="House No / Building"
+                        value="<%= address?.house_no || '' %>">
+
+
+
+                    <input type="text" name="street" placeholder="Street / Area" value="<%= address?.street || '' %>">
+
+
+
+                    <input type="text" name="city" placeholder="City" value="<%= address?.city || '' %>">
+
+
+
+                    <input type="text" name="state" placeholder="State" value="<%= address?.state || '' %>">
+
+
+
+                    <input type="text" name="pincode" placeholder="Pincode" value="<%= address?.pincode || '' %>">
+
+
+
+                    <input type="text" name="landmark" placeholder="Landmark" value="<%= address?.landmark || '' %>">
+
+
+
+                    <button>
+
+                        Save Address
+
+                    </button>
+
+
+
+                </form>
+
+
+
+            </div>
+
+
+        </section>
+
+        <div class="danger-zone">
+
+            <h2>
+                Danger Zone
+            </h2>
+
+
+            <p>
+                Deleting your account will remove your profile,
+                wishlist, cart and order history permanently.
+            </p>
+
+
+            <form action="/delete-account" method="POST">
+
+                <button>
+                    Delete Account Permanently
+                </button>
+
+            </form>
+
+
+        </div>
+
+        <%- include("partials/footer")%>
+</body>
+
+</html>

@@ -48,6 +48,8 @@ const productRoutes = require("./routes/productRoutes");
 const collection = require("./routes/collection");
 const wishlistRoutes = require("./routes/wishlistRoutes");
 const cartRoutes = require("./routes/cartRoutes");
+const profileRoutes = require("./routes/profileRoutes");
+
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -139,7 +141,7 @@ app.use(productRoutes);
 app.use(collection);
 app.use(wishlistRoutes);
 app.use(cartRoutes);
-
+app.use(profileRoutes);
 app.get("/about", isAuthenticated, (req, res) => {
     res.render("about");
 });
