@@ -146,10 +146,24 @@
 
 
                 <div class="action-buttons">
-                    <button class="cart-btn">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        Add To Cart
-                    </button>
+                    <form action="/cart/add" method="POST">
+
+
+                        <input type="hidden" name="product_id" value="<%= product.id %>">
+
+
+                        <button class="cart-btn">
+
+
+                            <i class="fa-solid fa-cart-shopping"></i>
+
+                            Add To Cart
+
+
+                        </button>
+
+
+                    </form>
                     <form action="/wishlist/add" method="POST">
 
                         <input type="hidden" name="product_id" value="<%= product.id %>">

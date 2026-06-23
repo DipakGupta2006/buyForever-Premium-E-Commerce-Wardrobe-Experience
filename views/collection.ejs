@@ -58,20 +58,45 @@
                             <p>
                                 <%= product.price %>
                             </p>
-                            
+
                             <a href="/product/<%= product.id %>" class="view-btn">
                                 View Product
                             </a>
 
-                            <button class="cart-btn">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                Add To Cart
-                            </button>
+                            <form action="/cart/add" method="POST">
 
-                            <button class="wishlist-btn">
-                                <i class="fa-solid fa-heart"></i>
-                                Add To Wishlist
-                            </button>
+
+                                <input type="hidden" name="product_id" value="<%= product.id %>">
+
+
+                                <button class="cart-btn">
+
+
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                    Add To Cart
+
+
+                                </button>
+
+
+                            </form>
+
+                            <form action="/wishlist/add" method="POST">
+
+                                <input type="hidden" name="product_id" value="<%= product.id %>">
+
+
+                                <button class="wishlist-btn">
+
+                                    <i class="fa-solid fa-heart"></i>
+
+                                    Add To Wishlist
+
+                                </button>
+
+
+                            </form>
                         </div>
                     </div>
                     <% }) %>

@@ -47,6 +47,7 @@ const home = require("./routes/home");
 const productRoutes = require("./routes/productRoutes");
 const collection = require("./routes/collection");
 const wishlistRoutes = require("./routes/wishlistRoutes");
+const cartRoutes = require("./routes/cartRoutes");
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -137,6 +138,7 @@ app.use(home);
 app.use(productRoutes);
 app.use(collection);
 app.use(wishlistRoutes);
+app.use(cartRoutes);
 
 app.get("/about", isAuthenticated, (req, res) => {
     res.render("about");

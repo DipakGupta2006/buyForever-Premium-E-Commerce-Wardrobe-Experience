@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+
+    <title>
+        My Cart | add2Kart
+    </title>
+
+
+
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+</head>
+
+
+
+<body>
+    <%- include("partials/navbar") %>
+
+    <section class="cart-section">
+
+
+
+        <div class="cart-title">
+
+
+            <h1>
+                My Cart <i class="fa-solid fa-cart-shopping"></i>
+            </h1>
+
+
+            <p>
+                Review your items before checkout
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <div class="cart-container">
+
+
+
+            <% products.forEach(product=>{ %>
+
+
+
+                <div class="cart-card">
+
+
+
+                    <div class="cart-image">
+
+
+                        <img src="<%= product.image %>">
+
+
+                    </div>
+
+
+
+
+                    <div class="cart-details">
+
+
+                        <h2>
+
+                            <%= product.product_name %>
+
+                        </h2>
+
+
+                        <p>
+
+                            <i class="fa-solid fa-tag"></i>
+
+                            <%= product.brand || "Premium Brand" %>
+
+                        </p>
+
+
+
+                        <h3>
+
+                            <%= product.price %>
+
+                        </h3>
+
+
+
+                        <div class="quantity">
+
+                            Quantity:
+
+                            <span>
+                                <%= product.quantity %>
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="rating">
+
+                            ⭐⭐⭐⭐⭐
+
+                            <span>
+                                (4.8/5)
+                            </span>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="cart-actions">
+
+
+                        <button class="checkout-btn">
+
+                            <i class="fa-solid fa-bag-shopping"></i>
+
+                            Buy Now
+
+                        </button>
+
+
+
+                        <form action="/cart/remove" method="POST">
+
+
+                            <input type="hidden" name="product_id" value="<%= product.id %>">
+
+
+
+                            <button class="remove-btn">
+
+
+                                <i class="fa-solid fa-trash"></i>
+
+                                Remove
+
+
+                            </button>
+
+
+                        </form>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <% }) %>
+
+
+
+        </div>
+
+
+
+
+        <!-- <div class="checkout-box">
+
+
+            <h2>
+                Total Amount
+            </h2>
+
+
+            <h1>
+                ₹999
+            </h1>
+
+
+
+            <button>
+
+                Proceed To Checkout
+
+            </button>
+
+
+
+        </div>
+ -->
+
+
+    </section>
+
+
+
+    <%- include("partials/footer") %>
+</body>
+
+
+</html>
