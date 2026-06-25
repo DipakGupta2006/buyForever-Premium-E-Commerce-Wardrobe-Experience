@@ -139,13 +139,21 @@ app.get("/logout", (req,res)=>{
 });
 
 app.use(home);
+
 app.use(productRoutes);
+
 app.use(collection);
+
 app.use(wishlistRoutes);
+
 app.use(cartRoutes);
+
 app.use(profileRoutes);
+
 app.use(checkoutRoutes);
+
 app.use(orderRoutes);
+
 app.get("/about", isAuthenticated, (req, res) => {
     res.render("about");
 });

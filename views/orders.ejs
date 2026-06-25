@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/orders.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/footer.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
 
@@ -22,114 +22,114 @@
 
 <body>
 
-    <%-include("partials/navbar")%>
+    <%-include("partials /navbar")%>
 
-    <section class="orders-section">
-
-
-
-        <h1>
-            My Orders 📦
-        </h1>
+        <section class="orders-section">
 
 
 
-
-        <div class="orders-container">
-
-
-
-            <% if(orders.length===0){ %>
-
-
-                <h2>
-                    No Orders Found
-                </h2>
-
-
-                <% } %>
+            <h1>
+                My Orders 📦
+            </h1>
 
 
 
 
-                    <% orders.forEach(order=>{ %>
+            <div class="orders-container">
 
 
 
-                        <div class="order-card">
+                <% if(orders.length===0){ %>
+
+
+                    <h2>
+                        No Orders Found
+                    </h2>
+
+
+                    <% } %>
 
 
 
-                            <div class="order-header">
+
+                        <% orders.forEach(order=>{ %>
 
 
-                                <h2>
-                                    Order #<%= order.order_id %>
-                                </h2>
+
+                            <div class="order-card">
 
 
-                                <span>
-                                    <%= order.order_status %>
-                                </span>
+
+                                <div class="order-header">
+
+
+                                    <h2>
+                                        Order #<%= order.order_id %>
+                                    </h2>
+
+
+                                    <span>
+                                        <%= order.order_status %>
+                                    </span>
+
+
+                                </div>
+
+
+
+
+                                <div class="order-info">
+
+
+                                    <p>
+
+                                        <b>Total Amount:</b>
+
+                                        ₹<%= order.total_amount %>
+
+                                    </p>
+
+
+
+                                    <p>
+
+                                        <b>Payment:</b>
+
+                                        <%= order.payment_method %>
+
+                                    </p>
+
+
+
+                                    <p>
+
+                                        <b>Date:</b>
+
+                                        <%= order.created_at.toDateString() %>
+
+                                    </p>
+
+
+
+                                </div>
+
+
 
 
                             </div>
 
 
 
-
-                            <div class="order-info">
-
-
-                                <p>
-
-                                    <b>Total Amount:</b>
-
-                                    ₹<%= order.total_amount %>
-
-                                </p>
+                            <% }) %>
+            
 
 
-
-                                <p>
-
-                                    <b>Payment:</b>
-
-                                    <%= order.payment_method %>
-
-                                </p>
+            </div>
 
 
+        </section>
 
-                                <p>
-
-                                    <b>Date:</b>
-
-                                    <%= order.created_at.toDateString() %>
-
-                                </p>
-
-
-
-                            </div>
-
-
-
-
-                        </div>
-
-
-
-                        <% }) %>
-
-
-
-        </div>
-
-
-    </section>
-
-    <%-include("partials/footer")%>
+        <%-include("partials /footer")%>
 
 </body>
 
