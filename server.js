@@ -127,9 +127,9 @@ app.post("/login", async (req, res) => {
     }
 });
 
-app.get("/logout", (req,res)=>{
-    req.session.destroy((err)=>{
-        if(err){
+app.get("/logout", (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
             console.log(err);
             return res.status(500).send("Logout failed");
         }
@@ -165,6 +165,44 @@ app.get("/contact", isAuthenticated, (req, res) => {
 app.get("/order-success", isAuthenticated, (req, res) => {
     res.render("order-success")
 })
+
+
+// admin code
+
+app.get("/admin/login", (req, res) => {
+    res.render("admin/login");
+});
+
+app.post("/admin/login", async(req,res)=>{
+    try{
+        const {email,password}=req.body;
+        const [result] = await pool.query(
+            "SELECT * FROM admins WHERE email=?",
+            [email]
+        );
+        if(result.length === 0){
+            return res.send("Admin Email Not Found");
+        }
+        const admin=result[0];
+        if(admin.password !== password){
+            return res.send("Wrong Password");
+        }
+        res.redirect("/admin/dashboard");
+    }
+    catch(err){
+        console.log(err);
+        res.send("Database Error");
+    }
+});
+
+app.get("/admin/dashboard", (req, res) => {
+    res.render("admin/dashboard");
+});
+
+
+
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
