@@ -1,87 +1,96 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
-.admin-navbar{
+.admin-navbar {
 
-    height:75px;
-    width:100%;
+    height: 95px;
+    width: 100%;
 
-    background:#000;
+    background: #000;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    padding:0 40px;
-
-}
-
-
-
-.admin-logo{
-
-    color:white;
-    font-size:28px;
-    font-weight:bold;
+    padding: 0 40px;
 
 }
 
 
 
-.admin-nav-links{
+.admin-logo {
 
-    display:flex;
-    align-items:center;
-    gap:25px;
+    text-decoration: none;
 
-    list-style:none;
+    font-family: "Pacifico", cursive;
+
+    font-size: 44px;
+
+    color: #ffffff;
+
+    letter-spacing: 1px;
+
 
 }
 
 
 
-.admin-nav-links li a{
+.admin-nav-links {
 
-    text-decoration:none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
 
-    color:white;
-
-    font-size:16px;
-
-    padding:10px 15px;
-
-    border-radius:6px;
-
-    transition:0.3s;
+    list-style: none;
 
 }
 
 
 
-.admin-nav-links li a:hover{
+.admin-nav-links li a {
 
-    background:white;
-    color:black;
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 16px;
+
+    padding: 10px 15px;
+
+    border-radius: 6px;
+
+    transition: 0.3s;
 
 }
 
 
 
-.admin-nav-links .logout{
+.admin-nav-links li a:hover {
 
-    background:white;
-    color:black;
+    background: white;
+    color: black;
 
 }
 
 
-.admin-nav-links .logout:hover{
 
-    background:#ddd;
+.admin-nav-links .logout {
+
+    background: white;
+    color: black;
+
+}
+
+
+.admin-nav-links .logout:hover {
+
+    background: #ddd;
 
 }
