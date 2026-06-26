@@ -202,32 +202,25 @@ app.post("/admin/login", async (req, res) => {
     }
 });
 
-app.get("/admin/logout",(req,res)=>{
+app.get("/admin/logout", (req, res) => {
     delete req.session.admin;
     res.redirect("/admin/login");
 });
 
 app.get("/admin/dashboard", adminAuth, async (req, res) => {
-
     try {
-
-
         const [users] = await pool.query(
             "SELECT COUNT(*) AS totalUsers FROM users"
         );
-
 
         const [products] = await pool.query(
             "SELECT COUNT(*) AS totalProducts FROM latest_collection"
         );
 
-
         const [orders] = await pool.query(
             "SELECT COUNT(*) AS totalOrders FROM orders"
         );
 
-
-        // Revenue calculation from VARCHAR price
         const [revenue] = await pool.query(`
             SELECT 
             SUM(
@@ -235,33 +228,143 @@ app.get("/admin/dashboard", adminAuth, async (req, res) => {
             ) AS totalRevenue
             FROM orders
         `);
-
-
-
         res.render("admin/dashboard", {
-
             totalUsers: users[0].totalUsers,
-
             totalProducts: products[0].totalProducts,
-
             totalOrders: orders[0].totalOrders,
-
             totalRevenue: revenue[0].totalRevenue || 0
+        });
+    }
+    catch (err) {
+        console.log(err);
+        res.send("Dashboard Error");
+    }
+});
+
+
+app.get("/admin/products", adminAuth, async (req, res) => {
+
+    try {
+
+
+        const [products] = await pool.query(
+            "SELECT * FROM latest_collection ORDER BY id DESC"
+        );
+
+
+        res.render("admin/products", {
+
+            products: products
 
         });
 
 
-    }
-    catch(err){
+    } catch (err) {
+
 
         console.log(err);
 
-        res.send("Dashboard Error");
+        res.send("Products Fetch Error");
+
 
     }
 
 
 });
+
+app.post("/admin/products/add", adminAuth, async (req, res) => {
+
+    try {
+
+
+        const {
+            product_name,
+            brand,
+            category,
+            price,
+            size,
+            image,
+            image_1,
+            image_2,
+            image_3,
+            image_4,
+            description
+        } = req.body;
+
+
+
+        const sql = `
+        INSERT INTO latest_collection
+        (
+            product_name,
+            price,
+            image,
+            description,
+            brand,
+            category,
+            size,
+            image_1,
+            image_2,
+            image_3,
+            image_4
+        )
+
+        VALUES (?,?,?,?,?,?,?,?,?,?,?)
+        `;
+
+
+
+        await pool.query(sql, [
+
+            product_name,
+            price,
+            image,
+            description,
+            brand,
+            category,
+            size,
+            image_1,
+            image_2,
+            image_3,
+            image_4
+
+        ]);
+
+
+
+        res.redirect("/admin/products");
+
+
+
+    } catch(err) {
+
+
+        console.log(err);
+
+        res.send("Product Add Error");
+
+
+    }
+
+
+});
+
+
+app.get("/admin/products/delete/:id", adminAuth, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const sql = `
+            DELETE FROM latest_collection
+            WHERE id = ?
+        `;
+        await pool.query(sql, [id]);
+        res.redirect("/admin/products");
+    } catch (err) {
+        console.log(err);
+        res.send("Product Delete Error");
+    }
+});
+
 
 
 

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products - add2Kart Admin</title>
+
+    <link rel="stylesheet" href="/css/adminProducts.css">
+    <link rel="stylesheet" href="/css/adminNavbar.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="admin-layout">
+
+
+        <!-- Sidebar -->
+
+      <%- include("../partials/adminNavbar") %>
+
+
+        <!-- Main Content -->
+
+        <main class="container">
+
+
+            <div class="header">
+
+                <h1>
+                    Product Management
+                </h1>
+
+
+                <button class="add-btn">
+                    + Add Product
+                </button>
+
+            </div>
+
+
+
+
+
+            <!-- Product Table -->
+
+
+            <div class="table-box">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Main Image</th>
+
+                            <th>Name</th>
+
+                            <th>Brand</th>
+
+                            <th>Category</th>
+
+                            <th>Price</th>
+
+                            <th>Description</th>
+
+                            <th>Size</th>
+
+                            <th>Images</th>
+
+                            <th>Status</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody>
+
+
+                        <!-- Dynamic Loop Here -->
+
+                    <tbody>
+
+
+                        <% products.forEach((product)=>{ %>
+
+
+                            <tr>
+
+
+                                <td>
+                                    <%= product.id %>
+                                </td>
+
+
+
+                                <td>
+
+                                    <img src="<%= product.image %>" class="product-img">
+
+                                </td>
+
+
+
+                                <td>
+                                    <%= product.product_name %>
+                                </td>
+
+
+
+                                <td>
+                                    <%= product.brand %>
+                                </td>
+
+
+
+                                <td>
+                                    <%= product.category %>
+                                </td>
+
+
+
+                                <td>
+                                    <%= product.price %>
+                                </td>
+
+
+
+                                <td class="description">
+
+                                    <%= product.description %>
+
+                                </td>
+
+
+
+                                <td>
+
+                                    <%= product.size %>
+
+                                </td>
+
+
+
+                                <td>
+
+
+                                    <div class="small-images">
+
+
+                                        <img src="<%= product.image_1 %>">
+
+
+                                        <img src="<%= product.image_2 %>">
+
+
+                                        <img src="<%= product.image_3 %>">
+
+
+                                        <img src="<%= product.image_4 %>">
+
+
+                                    </div>
+
+
+                                </td>
+
+
+
+                                <td>
+
+
+                                    <% if(product.status){ %>
+
+
+                                        <span class="status">
+                                            Active
+                                        </span>
+
+
+                                        <% }else{ %>
+
+
+                                            <span class="inactive">
+                                                Inactive
+                                            </span>
+
+
+                                            <% } %>
+
+
+                                </td>
+
+
+
+
+                                <td>
+
+                                    <a href="/admin/products/delete/<%= product.id %>" class="delete">
+
+                                        Delete
+
+                                    </a>
+
+
+                                </td>
+
+
+
+                            </tr>
+
+
+
+                            <% }) %>
+
+
+
+                    </tbody>
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- Add Product -->
+
+
+            <div class="form-box">
+
+
+                <h2>
+                    Add New Product
+                </h2>
+
+
+
+                <form action="/admin/products/add" method="POST">
+
+
+                    <div class="form-grid">
+
+
+                        <input type="text" name="product_name" placeholder="Product Name">
+
+
+
+                        <input type="text" name="brand" placeholder="Brand">
+
+
+
+                        <input type="text" name="category" placeholder="Category">
+
+
+
+                        <input type="text" name="price" placeholder="Price (₹399)">
+
+
+
+                        <input type="text" name="size" placeholder="Size">
+
+
+
+                        <input type="url" name="image" placeholder="Main Image URL">
+
+
+                        <input type="url" name="image_1" placeholder="Image 1 URL">
+
+
+                        <input type="url" name="image_2" placeholder="Image 2 URL">
+
+
+                        <input type="url" name="image_3" placeholder="Image 3 URL">
+
+
+                        <input type="url" name="image_4" placeholder="Image 4 URL">
+
+
+                    </div>
+
+
+
+                    <textarea name="description" placeholder="Product Description"></textarea>
+
+
+
+                    <button class="submit-btn">
+                        Save Product
+                    </button>
+
+
+                </form>
+
+
+            </div>
+
+
+
+        </main>
+
+
+    </div>
+
+
+</body>
+
+</html>

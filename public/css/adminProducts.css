@@ -1,0 +1,225 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+
+body{
+    background:#f5f5f5;
+}
+
+
+
+
+/* Main */
+
+
+.container{
+    padding:20px;
+}
+
+
+
+.header{
+
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+
+}
+
+
+
+.add-btn{
+
+    background:black;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+
+}
+
+
+
+
+
+/* Table */
+
+
+.table-box{
+
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    overflow:auto;
+
+}
+
+
+
+table{
+
+    width:1200px;
+    border-collapse:collapse;
+
+}
+
+
+
+th{
+
+    background:black;
+    color:white;
+    padding:15px;
+
+}
+
+
+td{
+
+    padding:15px;
+    border-bottom:1px solid #ddd;
+
+}
+
+
+
+.product-img{
+
+    width:130px;
+    height:220px;
+    object-fit:cover;
+    border-radius:8px;
+
+}
+
+
+
+.description{
+
+    max-width:230px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+
+}
+
+
+
+.small-images{
+
+    display:flex;
+    gap:10px;
+
+}
+
+
+.small-images img{
+
+    width:50px;
+    height:50px;
+    object-fit:cover;
+    border-radius:5px;
+
+}
+
+
+
+.status{
+
+    background:black;
+    color:white;
+    padding:5px 12px;
+    border-radius:20px;
+
+}
+
+
+
+.edit,
+.delete{
+
+    border:none;
+    padding:8px 12px;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+
+.edit{
+
+    background:black;
+    color:white;
+
+}
+
+
+.delete{
+
+    background:#ddd;
+
+}
+
+
+
+
+
+/* Form */
+
+
+.form-box{
+
+    margin-top:40px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+
+}
+
+
+
+.form-grid{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+
+}
+
+
+
+input,
+textarea{
+
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:7px;
+
+}
+
+
+textarea{
+
+    width:100%;
+    margin-top:20px;
+    height:120px;
+
+}
+
+
+
+.submit-btn{
+
+    margin-top:20px;
+    padding:12px 40px;
+    background:black;
+    color:white;
+    border:none;
+    border-radius:8px;
+
+}
+

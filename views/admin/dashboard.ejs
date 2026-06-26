@@ -9,6 +9,7 @@
     <title>Admin Dashboard - add2Kart</title>
 
     <link rel="stylesheet" href="/css/adminDashboard.css">
+    <link rel="stylesheet" href="/css/adminNavbar.css">
 
 </head>
 
@@ -21,52 +22,7 @@
 
         <!-- Sidebar -->
 
-        <aside class="sidebar">
-
-            <div class="logo">
-                buyForever
-            </div>
-
-
-            <ul>
-
-                <li class="active">
-                    Dashboard
-                </li>
-
-                <li>
-                    Products
-                </li>
-
-                <li>
-                    Orders
-                </li>
-
-                <li>
-                    Users
-                </li>
-
-                <li>
-                    Banners
-                </li>
-
-                <li>
-                    Settings
-                </li>
-
-
-            </ul>
-
-
-            <a href="/admin/logout" class="logout">
-                Logout
-            </a>
-
-
-        </aside>
-
-
-
+    <%- include("../partials/adminNavbar") %>
 
 
         <!-- Main Content -->
@@ -169,7 +125,7 @@
             <!-- Recent Orders -->
 
 
-            <section class="table-section">
+            <!-- <section class="table-section">
 
 
                 <h2>
@@ -248,7 +204,7 @@
                 </table>
 
 
-            </section>
+            </section> -->
 
 
 
