@@ -395,6 +395,4 @@ Developed by **Dipak Gupta**
 
 # ⭐ Project Status
 
-🚧 Currently under development
-
 Core ecommerce functionality and admin management system implemented.
