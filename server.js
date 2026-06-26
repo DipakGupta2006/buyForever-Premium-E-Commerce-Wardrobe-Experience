@@ -365,7 +365,48 @@ app.get("/admin/products/delete/:id", adminAuth, async (req, res) => {
     }
 });
 
-
+app.get("/admin/orders", adminAuth, async (req,res)=>{
+    try{
+        const [orders] = await pool.query(`
+            SELECT
+            orders.id AS order_id,
+            users.username,
+            users.email,
+            user_addresses.full_name,
+            user_addresses.phone,
+            user_addresses.house_no,
+            user_addresses.street,
+            user_addresses.city,
+            user_addresses.state,
+            user_addresses.pincode,
+            orders.total_amount,
+            orders.payment_method,
+            orders.order_status,
+            orders.created_at,
+            latest_collection.product_name,
+            latest_collection.image,
+            order_items.quantity,
+            order_items.price
+            FROM orders
+            JOIN users
+            ON orders.user_id = users.id
+            JOIN user_addresses
+            ON orders.address_id = user_addresses.id
+            JOIN order_items
+            ON orders.id = order_items.order_id
+            JOIN latest_collection
+            ON order_items.product_id = latest_collection.id
+            ORDER BY orders.id DESC
+        `);
+        res.render("admin/orders",{
+            orders
+        });
+    }
+    catch(err){
+        console.log(err);
+        res.send("Order Fetch Error");
+    }
+});
 
 
 
